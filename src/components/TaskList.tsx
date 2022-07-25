@@ -35,9 +35,13 @@ export function TaskList() {
     [tasks]
   );
 
-  function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
-  }
+  const handleRemoveTask = useCallback(
+    async (idParam: number) => {
+      delete tasks[idParam];
+      setTasks({ ...tasks });
+    },
+    [tasks]
+  );
 
   return (
     <section className="task-list container">
