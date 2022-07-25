@@ -27,9 +27,13 @@ export function TaskList() {
     }
   }
 
-  function handleToggleTaskCompletion(id: number) {
-    // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
-  }
+  const handleToggleTaskCompletion = useCallback(
+    (idParam: number) => {
+      tasks[idParam].isComplete = !tasks[idParam].isComplete;
+      setTasks({ ...tasks });
+    },
+    [tasks]
+  );
 
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
